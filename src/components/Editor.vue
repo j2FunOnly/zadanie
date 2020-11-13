@@ -3,7 +3,7 @@
     <div class="col">
       <Panel heading="Редактируемый текст">
         <p class="text" 
-          :_______ ="{
+          :style ="{
             color: styles.color,
             fontSize: styles.fontSize,
             backgroundColor: styles.backgroundColor
@@ -22,9 +22,9 @@
     <div class="col">
       <Panel heading="Изменить стили">
         <Toolbar
-          @______="changeBackground"
-          @______="changeColor"
-          @_______="changeFont"
+          @change-bg="changeBackground"
+          @change-color="changeColor"
+          @change-font="changeFont"
         />
       </Panel>
     </div>
@@ -52,12 +52,12 @@ export default {
   },
   computed: {
     json() {
-      return JSON.stringify(______);
+      return JSON.stringify(this.styles);
     }
   },
-  ______ created() {
-    const response = _______ fetch('https://fish-text.ru/get');
-    const json = ________ response.json();
+  async created() {
+    const response = await fetch('https://fish-text.ru/get');
+    const json = await response.json();
     const { text } = json;
     this.text = text;
   },
@@ -68,7 +68,7 @@ export default {
   methods: {
     changeTextElementStyle(styleName, newValue) {
       const { styles } = this;
-      this.___(styles, styleName, newValue);
+      this.$set(styles, styleName, newValue);
     },
     changeBackground(newBg) {
       this.changeTextElementStyle("backgroundColor", newBg);
@@ -80,7 +80,7 @@ export default {
       this.changeTextElementStyle("fontSize", `${font}px`);
     },
     copyJSON() {
-      copyToClipboard(this.___);
+      copyToClipboard(this.json);
     }
   }
 };
