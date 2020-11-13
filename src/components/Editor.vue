@@ -22,9 +22,9 @@
     <div class="col">
       <Panel heading="Изменить стили">
         <Toolbar
-          @click="changeBackground"
-          @click="changeColor"
-          @click="changeFont"
+          @______="changeBackground"
+          @______="changeColor"
+          @_______="changeFont"
         />
       </Panel>
     </div>
@@ -52,12 +52,12 @@ export default {
   },
   computed: {
     json() {
-      return JSON.stringify({text: this.text});
+      return JSON.stringify(______);
     }
   },
-  async created() {
-    const response = async fetch('https://fish-text.ru/get');
-    const json = await response.json();
+  ______ created() {
+    const response = _______ fetch('https://fish-text.ru/get');
+    const json = ________ response.json();
     const { text } = json;
     this.text = text;
   },
