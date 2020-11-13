@@ -3,7 +3,7 @@
     <div class="col">
       <Panel heading="Редактируемый текст">
         <p class="text" 
-          :styles ="{
+          :_______ ="{
             color: styles.color,
             fontSize: styles.fontSize,
             backgroundColor: styles.backgroundColor
