@@ -53,13 +53,13 @@ export default {
   },
   methods: {
     changeFontSize() {
-      this._______("change-font", this.fontSize);
+      this.$emit("change-font", this.fontSize);
     },
     changeBackground() {
-      this._______("change-bg", this.color);
+      this.$emit("change-bg", this.color);
     },
     changeColor() {
-      this._______("change-color", this.color);
+      this.$emit("change-color", this.color);
     }
   }
 };
